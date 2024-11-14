@@ -133,7 +133,9 @@ def main():
                 particles.remove(particle)
 
         elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000
-        timer_text = FONT.render(f"Tempo: {TIME_LIMIT - int(elapsed_time)}s", True, WHITE)
+        minutes = (TIME_LIMIT - int(elapsed_time)) // 60
+        seconds = (TIME_LIMIT - int(elapsed_time)) % 60
+        timer_text = FONT.render(f"Tempo: {minutes:02}:{seconds:02}", True, WHITE)
         screen.blit(timer_text, (10, 10))
 
         display_score(screen, player)

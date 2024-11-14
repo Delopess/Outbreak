@@ -27,7 +27,7 @@ class Particle:
                 int(self.size * zoom)
             )
 
-def create_explosion(particles, x, y, color, count=25):
+def create_explosion(particles, x, y, color, count=15):
     for _ in range(count):
         new_particle = Particle(x, y, color)
         particles.append(new_particle)
