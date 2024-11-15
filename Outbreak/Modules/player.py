@@ -33,6 +33,7 @@ class Player:
         speed = max(1, self.base_speed - 0.05 * self.size)  # Certifique-se que a velocidade não seja menor que 1
 
         if distance > 1:
+            speed = min(5, distance / 10)
             self.x += dx / distance * speed
             self.y += dy / distance * speed
             self.direction = (dx / distance, dy / distance)

@@ -13,9 +13,9 @@ WORLD_WIDTH = 8000
 WORLD_HEIGHT = 6000
 
 # Parâmetros do jogo
-TIME_LIMIT = 10  # Tempo limite em segundos
-POINTS_PER_ITEM = 10
-RESPAWN_TIME = 2  # Tempo de respawn de pontos em milissegundos
+TIME_LIMIT = 450  # Tempo limite em segundos
+POINTS_PER_ITEM = 1
+RESPAWN_TIME = 150  # Tempo de respawn de pontos em milissegundos
 GRID_SIZE = 40
 MIN_ZOOM = 1.7
 MAX_ZOOM_OUT = 0.3
