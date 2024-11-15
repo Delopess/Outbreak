@@ -9,11 +9,11 @@ WIDTH = 1520
 HEIGHT = 780
 
 # Configurações do mundo
-WORLD_WIDTH = 16000
+WORLD_WIDTH = 8000
 WORLD_HEIGHT = 6000
 
 # Parâmetros do jogo
-TIME_LIMIT = 120  # Tempo limite em segundos
+TIME_LIMIT = 10  # Tempo limite em segundos
 POINTS_PER_ITEM = 10
 RESPAWN_TIME = 2  # Tempo de respawn de pontos em milissegundos
 GRID_SIZE = 40
