@@ -28,6 +28,12 @@ def menu(screen, star_field):
 
     # Criação dos botões do menu principal
     survival_tdm_button = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 2, 200, 50)  # Botão para "Sobrevivência"
+    horde_button = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 2 + 70, 200, 50)  # Botão para "Horda"
+    horde_label = subtitle_font.render("Em Breve ->", True, GRAY)
+    screen.blit(horde_label, (horde_button.x  // 1.2 - horde_label.get_width() // 5, horde_button.y + 20))
+    flag_button = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 2 + 140, 200, 50)  # Botão para "Capture the flag"
+    flag_label = subtitle_font.render("Em Breve ->", True, GRAY)
+    screen.blit(flag_label, (flag_button.x  // 1.2 - flag_label.get_width() // 5, flag_button.y + 20))
     settings_button = pygame.Rect(WIDTH - 70, HEIGHT - 70, 60, 60)      # Botão para "Configurações"
     mouse_pos = pygame.mouse.get_pos()
 
@@ -38,6 +44,20 @@ def menu(screen, star_field):
     else:
         pygame.draw.rect(screen, (100, 100, 255), survival_tdm_button, border_radius=10)  
         pygame.draw.rect(screen, BLACK, survival_tdm_button, 3, border_radius=10)
+        
+    if horde_button.collidepoint(mouse_pos):
+        pygame.draw.rect(screen, (GRAY), horde_button, border_radius=10)
+        pygame.draw.rect(screen, WHITE, horde_button, 3, border_radius=10)
+    else:
+        pygame.draw.rect(screen, (GRAY), horde_button, border_radius=10)  
+        pygame.draw.rect(screen, BLACK, horde_button, 3, border_radius=10)
+
+    if flag_button.collidepoint(mouse_pos):
+        pygame.draw.rect(screen, (GRAY), flag_button, border_radius=10)
+        pygame.draw.rect(screen, WHITE, flag_button, 3, border_radius=10)
+    else:
+        pygame.draw.rect(screen, (GRAY), flag_button, border_radius=10)  
+        pygame.draw.rect(screen, BLACK, flag_button, 3, border_radius=10)
 
     if settings_button.collidepoint(mouse_pos):
         pygame.draw.rect(screen, (BLACK), settings_button, border_radius=10)
@@ -49,21 +69,25 @@ def menu(screen, star_field):
     # Renderiza o texto dos botões
     button_font = pygame.font.Font(None, 36)
     survival_text = button_font.render("Sobrevivência", True, (0, 0, 0))
+    horde_text = button_font.render("Horda", True, (0, 0, 0))
+    flag_text = button_font.render("Capture the flag", True, (0, 0, 0))
 
     gear_image = pygame.image.load("Resources/Images/gear.png")  # Substitua pelo caminho correto da imagem
     # Desenhar a imagem no botão de configurações
     gear_image_resized = pygame.transform.scale(gear_image, (45, 45))  # Ajuste o tamanho da imagem
-    screen.blit(gear_image_resized, (settings_button.x + (settings_button.width - 1) // 9, settings_button.y + (settings_button.height - 45) // 2))
     
 
     # Posiciona o texto centralizado dentro dos botões
     screen.blit(survival_text, (survival_tdm_button.x + survival_tdm_button.width // 2 - survival_text.get_width() // 2, survival_tdm_button.y + 10))
+    screen.blit(horde_text, (horde_button.x + horde_button.width // 2 - horde_text.get_width() // 2, horde_button.y + 10))
+    screen.blit(flag_text, (flag_button.x + flag_button.width // 2 - flag_text.get_width() // 2, flag_button.y + 10))
+    screen.blit(gear_image_resized, (settings_button.x + (settings_button.width - 1) // 9, settings_button.y + (settings_button.height - 45) // 2))
     
     draw_star_field(screen, star_field)  # Fundo de estrelas
 
     # Atualiza o display
     pygame.display.flip()
-    return survival_tdm_button, settings_button
+    return survival_tdm_button, settings_button, horde_button, flag_button
 
 # Tela de configurações
 # Esta função exibe a tela de configurações com uma opção para voltar ao menu principal.

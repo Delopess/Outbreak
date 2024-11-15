@@ -43,7 +43,7 @@ def main():
         screen.fill((0, 0, 0))
 
         if not mode_selected and not game_over:
-            survival_tdm_button, settings_button = menu(screen, star_field)
+            survival_tdm_button, settings_button, horde_button, flag_button = menu(screen, star_field)
             if not pygame.mixer.music.get_busy():
                 pygame.mixer.music.play(-1)  # Reinicia a música quando voltar ao menu
             for event in pygame.event.get():
@@ -53,7 +53,6 @@ def main():
                     mouse_pos = pygame.mouse.get_pos()
                     if survival_tdm_button.collidepoint(mouse_pos):
                         mode_selected = "survival_tdm"
-                        pygame.mixer.music.stop()
                     elif settings_button.collidepoint(mouse_pos):
                         mode_selected = "settings"
             continue
